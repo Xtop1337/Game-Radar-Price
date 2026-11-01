@@ -1,11 +1,13 @@
-# Релиз по тегу: git tag v1.0.0 && git push origin v1.0.0
-# Проверяет, что тег совпадает с версией в manifest.json, гоняет тесты и линтер,
-# собирает архивы для Firefox и Chromium и публикует GitHub Release с ними.
+# Релиз: вкладка Actions → Release → Run workflow (тег v<версия> создаётся сам по manifest.json)
+#   или по тегу: git tag v1.0.0 && git push origin v1.0.0
+# Проверяет версию, гоняет тесты и линтер, собирает архивы для Firefox и Chromium
+# и публикует GitHub Release с ними.
 name: Release
 
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,12 +22,19 @@ jobs:
         with:
           node-version: 22
 
-      - name: Version matches tag
+      - name: Version and tag
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           VERSION=$(node -p "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')).version")
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
+          echo "TAG=v$VERSION" >> "$GITHUB_ENV"
+          if [ "$GITHUB_REF_TYPE" = "tag" ] && [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
             echo "::error::Tag $GITHUB_REF_NAME does not match manifest.json version $VERSION"
+            exit 1
+          fi
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "::error::Release v$VERSION already exists — bump version in manifest.json and package.json"
             exit 1
           fi
 
@@ -40,9 +49,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           sed "s/{{VERSION}}/$VERSION/g" .github/release-notes.md > notes.md
-          gh release create "$GITHUB_REF_NAME" \
+          # при ручном запуске тег создаётся на текущем коммите
+          gh release create "$TAG" \
             "dist/game-radar-chromium-$VERSION.zip" \
             "dist/game-radar-firefox-$VERSION.zip" \
             --title "Game Radar $VERSION" \
             --notes-file notes.md \
-            --verify-tag
+            --target "$GITHUB_SHA"
