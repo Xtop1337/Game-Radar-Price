@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="app.name">Game Radar</title>
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="popup.css">
+  <script src="../styles/theme-boot.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-tab" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M12 12v5M9.5 14.5h5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  </svg>
+
+  <header class="top">
+    <div class="brand">
+      <img src="../icons/icon.svg" alt="" width="30" height="30">
+      <div>
+        <h1 data-i18n="app.name">Game Radar</h1>
+        <p id="status" class="status" data-i18n="status.loading">Loading…</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" data-i18n-title="btn.theme"><svg class="icon"><use href="#i-auto"/></svg></button>
+      <button id="refreshBtn" class="icon-btn" data-i18n-title="btn.refresh"><svg class="icon"><use href="#i-refresh"/></svg></button>
+      <button id="settingsBtn" class="icon-btn" data-i18n-title="btn.settings"><svg class="icon"><use href="#i-settings"/></svg></button>
+    </div>
+  </header>
+
+  <div id="permBanner" class="banner" hidden>
+    <svg class="icon"><use href="#i-alert"/></svg>
+    <span data-i18n="perm.banner">Allow access to the stores to load data.</span>
+    <button id="permBtn" class="btn primary" data-i18n="perm.allow">Allow</button>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" role="tab" data-tab="giveaways">
+      <svg class="icon"><use href="#i-gift"/></svg><span class="tab-label" data-i18n="tabs.giveaways">Free</span><span class="count" id="cnt-giveaways"></span>
+    </button>
+    <button class="tab" role="tab" data-tab="deals">
+      <svg class="icon"><use href="#i-tag"/></svg><span class="tab-label" data-i18n="tabs.deals">Deals</span><span class="count" id="cnt-deals"></span>
+    </button>
+    <button class="tab" role="tab" data-tab="wishlist">
+      <svg class="icon"><use href="#i-heart"/></svg><span class="tab-label" data-i18n="tabs.wishlist">Wishlist</span><span class="count" id="cnt-wishlist"></span>
+    </button>
+    <span class="tab-indicator" aria-hidden="true"></span>
+  </nav>
+
+  <main id="main">
+    <section class="panel" id="panel-giveaways" role="tabpanel">
+      <div class="chips" id="gwChips"></div>
+      <div id="gwList"></div>
+    </section>
+
+    <section class="panel" id="panel-deals" role="tabpanel" hidden>
+      <div class="filters">
+        <div class="filter-row">
+          <label class="search">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input id="dealSearch" type="search" data-i18n-placeholder="deals.search">
+          </label>
+          <select id="dealMin" data-i18n-title="deals.minTitle">
+            <option value="0" data-i18n="deals.minAny">Any</option>
+            <option value="50" data-i18n="deals.min50">50%+</option>
+            <option value="75" data-i18n="deals.min75">75%+</option>
+            <option value="90" data-i18n="deals.min90">90%+</option>
+          </select>
+          <select id="dealSort" data-i18n-title="deals.sortTitle">
+            <option value="discount" data-i18n="deals.sortDiscount">Discount</option>
+            <option value="price" data-i18n="deals.sortPrice">Cheapest</option>
+            <option value="rating" data-i18n="deals.sortRating">Rating</option>
+            <option value="ending" data-i18n="deals.sortEnding">Ending soon</option>
+          </select>
+        </div>
+        <div class="chips compact" id="dealChips"></div>
+      </div>
+      <div id="dealList"></div>
+    </section>
+
+    <section class="panel" id="panel-wishlist" role="tabpanel" hidden>
+      <div class="wl-add">
+        <label class="search">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <input id="wlSearch" type="search" data-i18n-placeholder="wl.search" autocomplete="off">
+        </label>
+        <button id="addTabBtn" class="btn ghost" data-i18n-title="wl.tabTitle">
+          <svg class="icon"><use href="#i-tab"/></svg><span data-i18n="wl.tabBtn">This tab</span>
+        </button>
+      </div>
+      <div id="wlResults" class="results"></div>
+      <div id="wlList"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "extName": {
+    "message": "Game Radar — ücretsiz oyunlar ve indirimler",
+    "description": "Extension name"
+  },
+  "extShortName": {
+    "message": "Game Radar",
+    "description": "Short name"
+  },
+  "extDescription": {
+    "message": "Steam, Epic Games, GOG ve diğer mağazalardan ücretsiz oyunlar ve indirimler. Fiyat düşüşü bildirimli istek listesi.",
+    "description": "Extension description"
+  },
+  "actionTitle": {
+    "message": "Game Radar",
+    "description": "Toolbar button tooltip"
+  }
+}

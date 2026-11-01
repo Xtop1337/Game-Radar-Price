@@ -1,0 +1,18 @@
+{
+  "extName": {
+    "message": "Игровой радар — раздачи и скидки",
+    "description": "Extension name"
+  },
+  "extShortName": {
+    "message": "Игровой радар",
+    "description": "Short name"
+  },
+  "extDescription": {
+    "message": "Бесплатные раздачи и скидки Steam, Epic Games, GOG и других магазинов. Список желаемого с уведомлениями о снижении цены.",
+    "description": "Extension description"
+  },
+  "actionTitle": {
+    "message": "Игровой радар",
+    "description": "Toolbar button tooltip"
+  }
+}

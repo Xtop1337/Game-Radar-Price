@@ -1,0 +1,7 @@
+[
+ {"internalName":"CYBERPUNK2077","title":"Cyberpunk 2077","dealID":"deal%2Bcp","storeID":"1","gameID":"111","salePrice":"23.99","normalPrice":"59.99","isOnSale":"1","savings":"60.010002","metacriticScore":"86","steamRatingText":"Very Positive","steamRatingPercent":"84","steamAppID":"1091500","thumb":"https://cdn/cp-thumb.jpg","lastChange":1761900000},
+ {"internalName":"WITCHER3","title":"The Witcher 3","dealID":"dealW3","storeID":"7","gameID":"222","salePrice":"7.99","normalPrice":"39.99","isOnSale":"1","savings":"80.020005","metacriticScore":"93","steamRatingPercent":"96","steamAppID":"292030","thumb":"https://cdn/w3.jpg"},
+ {"internalName":"EPICONLY","title":"Epic Exclusive","dealID":"dealE","storeID":"25","gameID":"333","salePrice":"14.99","normalPrice":"29.99","isOnSale":"1","savings":"50.016672","metacriticScore":"0","steamRatingPercent":"0","steamAppID":null,"thumb":"https://cdn/e.jpg"},
+ {"internalName":"HUMBLE","title":"Other store","dealID":"dealH","storeID":"11","gameID":"444","salePrice":"1","normalPrice":"10","savings":"90"},
+ {"internalName":"STEAMONLYUS","title":"US only sale","dealID":"dealUS","storeID":"1","gameID":"555","salePrice":"5.00","normalPrice":"10.00","savings":"50","steamAppID":"999"}
+]

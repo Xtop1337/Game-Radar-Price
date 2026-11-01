@@ -1,0 +1,12 @@
+{
+  "name": "game-radar",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Firefox/Zen extension: free game giveaways and discounts (Steam, Epic, GOG)",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node scripts/build.mjs",
+    "lint": "npm run build && npx --yes web-ext@8 lint --source-dir dist/firefox"
+  }
+}

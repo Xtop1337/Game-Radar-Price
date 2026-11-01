@@ -1,0 +1,5 @@
+{"total":2,"items":[
+ {"type":"app","name":"Cyberpunk 2077","id":1091500,"price":{"currency":"RUB","initial":299900,"final":119900},"tiny_image":"https://cdn/cp-tiny.jpg"},
+ {"type":"app","name":"Counter-Strike 2","id":730,"tiny_image":"https://cdn/cs2.jpg"},
+ {"type":"sub","name":"Bundle","id":5}
+]}

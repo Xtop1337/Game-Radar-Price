@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="opt.pageTitle">Settings — Game Radar</title>
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/page.css">
+  <script src="../styles/theme-boot.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-head">
+      <img src="../icons/icon.svg" width="44" height="44" alt="">
+      <div>
+        <h1 data-i18n="opt.title">Settings</h1>
+        <p data-i18n="app.tagline">Game Radar — giveaways &amp; deals</p>
+      </div>
+    </header>
+
+    <section class="card" id="permCard" hidden>
+      <h2 data-i18n="opt.permTitle">Store access</h2>
+      <p class="hint" data-i18n="opt.permHint"></p>
+      <button class="btn primary" id="grantBtn" data-i18n="opt.permBtn">Allow access</button>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.langTitle">Language</h2>
+      <div class="field">
+        <label for="language" data-i18n="opt.lang">Interface language</label>
+        <select id="language"></select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.regionTitle">Region &amp; updates</h2>
+      <div class="field">
+        <label for="country" data-i18n="opt.region">Country</label>
+        <select id="country"></select>
+      </div>
+      <div class="field">
+        <label for="currency" data-i18n="opt.currency">Price currency</label>
+        <select id="currency"></select>
+      </div>
+      <div class="field">
+        <label for="intervalMin" data-i18n="opt.interval">Check for updates</label>
+        <select id="intervalMin">
+          <option value="30" data-i18n="opt.int30">every 30 minutes</option>
+          <option value="60" data-i18n="opt.int60">every hour</option>
+          <option value="180" data-i18n="opt.int180">every 3 hours</option>
+          <option value="360" data-i18n="opt.int360">every 6 hours</option>
+          <option value="720" data-i18n="opt.int720">every 12 hours</option>
+        </select>
+      </div>
+      <p class="hint" data-i18n="opt.regionHint"></p>
+      <p class="hint" data-i18n="opt.currencyHint"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.storesTitle">Stores</h2>
+      <div class="toggles">
+        <label class="switch"><input type="checkbox" data-store="steam"><span></span>Steam</label>
+        <label class="switch"><input type="checkbox" data-store="epic"><span></span>Epic Games</label>
+        <label class="switch"><input type="checkbox" data-store="gog"><span></span>GOG</label>
+        <label class="switch"><input type="checkbox" data-store="other"><span></span><b data-i18n="opt.otherStores" class="plain">Others</b></label>
+      </div>
+      <label class="switch"><input type="checkbox" id="useGamerPower"><span></span><b data-i18n="opt.gamerpower" class="plain">GamerPower</b></label>
+      <p class="hint" data-i18n="opt.gamerpowerHint"></p>
+      <div class="field">
+        <label for="minDiscount" data-i18n="opt.minDiscount">Show discounts from</label>
+        <select id="minDiscount">
+          <option value="0" data-i18n="opt.anyDiscount">any discount</option>
+          <option value="20">20%</option>
+          <option value="33">33%</option>
+          <option value="50">50%</option>
+          <option value="75">75%</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.notifTitle">Notifications</h2>
+      <label class="switch"><input type="checkbox" id="notifyGiveaways"><span></span><b data-i18n="opt.notifGw" class="plain"></b></label>
+      <label class="switch"><input type="checkbox" id="notifyWishlist"><span></span><b data-i18n="opt.notifWl" class="plain"></b></label>
+      <label class="switch"><input type="checkbox" id="notifyDeals"><span></span><b data-i18n="opt.notifDeals" class="plain"></b></label>
+      <div class="field indent">
+        <label for="notifyDealsMin" data-i18n="opt.notifDealsMin">Hot deal — from</label>
+        <select id="notifyDealsMin">
+          <option value="75">75%</option>
+          <option value="85">85%</option>
+          <option value="90">90%</option>
+          <option value="95">95%</option>
+        </select>
+      </div>
+      <button class="btn ghost" id="testNotify" data-i18n="opt.testNotif">Show a test notification</button>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.lookTitle">Appearance</h2>
+      <div class="segmented" id="theme">
+        <button data-value="auto" data-i18n="opt.themeAuto">System</button>
+        <button data-value="light" data-i18n="opt.themeLight">Light</button>
+        <button data-value="dark" data-i18n="opt.themeDark">Dark</button>
+        <span class="seg-indicator"></span>
+      </div>
+      <label class="switch"><input type="checkbox" id="animations"><span></span><b data-i18n="opt.animations" class="plain"></b></label>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="opt.dataTitle">Data</h2>
+      <div class="btn-row">
+        <button class="btn ghost" id="exportBtn" data-i18n="opt.export">Export wishlist</button>
+        <button class="btn ghost" id="importBtn" data-i18n="opt.import">Import</button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+        <button class="btn ghost" id="clearCache" data-i18n="opt.clear">Clear cache</button>
+      </div>
+    </section>
+
+    <p class="foot"><span data-i18n="opt.sources">Data:</span> Epic Games Store, Steam, <a href="https://www.gamerpower.com" target="_blank" rel="noopener">GamerPower</a>, <a href="https://www.cheapshark.com" target="_blank" rel="noopener">CheapShark</a>.</p>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

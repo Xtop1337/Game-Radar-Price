@@ -1,0 +1,4 @@
+{"1091500":{"success":true,"data":{"price_overview":{"currency":"RUB","initial":299900,"final":119900,"discount_percent":60,"initial_formatted":"2999 pуб.","final_formatted":"1199 pуб."}}},
+ "999":{"success":true,"data":{"price_overview":{"currency":"RUB","initial":50000,"final":50000,"discount_percent":0}}},
+ "730":{"success":true,"data":[]},
+ "1":{"success":false}}

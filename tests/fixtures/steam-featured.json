@@ -1,0 +1,7 @@
+{"specials":{"id":"cat_specials","name":"Specials","items":[
+ {"id":1091500,"type":0,"name":"Cyberpunk 2077","discounted":true,"discount_percent":60,"original_price":299900,"final_price":119900,"currency":"RUB","large_capsule_image":"https://cdn/cp-large.jpg","header_image":"https://cdn/cp-header.jpg","discount_expiration":1793880000},
+ {"id":400,"type":0,"name":"Portal","discounted":true,"discount_percent":100,"original_price":24900,"final_price":0,"currency":"RUB","header_image":"https://cdn/portal.jpg","discount_expiration":1793880000},
+ {"id":555,"type":1,"name":"Some Package","discounted":true,"discount_percent":30,"original_price":1000,"final_price":700,"currency":"RUB"},
+ {"id":777,"type":0,"name":"Not discounted","discounted":false,"discount_percent":0,"original_price":1000,"final_price":1000,"currency":"RUB"}
+]},
+"top_sellers":{"items":[{"id":1091500,"type":0,"name":"Cyberpunk 2077","discounted":true,"discount_percent":60,"original_price":299900,"final_price":119900,"currency":"RUB"}]}}

@@ -1,0 +1,18 @@
+{"data":{"Catalog":{"searchStore":{"elements":[
+ {"title":"Grand Theft Auto V","id":"gta5id","namespace":"0584d2013f0149a791e7b9bad0eec102","description":"GTA V","offerType":"BASE_GAME",
+  "keyImages":[{"type":"Thumbnail","url":"https://cdn1.epicgames.com/gta-thumb.jpg"},{"type":"OfferImageWide","url":"https://cdn1.epicgames.com/gta-wide.jpg"}],
+  "productSlug":"grand-theft-auto-v/home","urlSlug":"gta5",
+  "price":{"totalPrice":{"discountPrice":0,"originalPrice":149900,"currencyCode":"RUB","currencyInfo":{"decimals":2}}},
+  "promotions":{"promotionalOffers":[{"promotionalOffers":[{"startDate":"2026-10-29T15:00:00.000Z","endDate":"2026-11-05T15:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":0}}]}],"upcomingPromotionalOffers":[]}},
+ {"title":"Future Free Game","id":"ffg","offerType":"BASE_GAME","keyImages":[{"type":"DieselStoreFrontWide","url":"https://cdn1.epicgames.com/ffg.jpg"}],
+  "productSlug":null,"urlSlug":"7f1d9a2b3c4d5e6f7a8b9c0d1e2f3a4b","offerMappings":[{"pageSlug":"future-free-game","pageType":"productHome"}],
+  "price":{"totalPrice":{"discountPrice":99900,"originalPrice":99900,"currencyCode":"RUB","currencyInfo":{"decimals":2}}},
+  "promotions":{"promotionalOffers":[],"upcomingPromotionalOffers":[{"promotionalOffers":[{"startDate":"2026-11-05T15:00:00.000Z","endDate":"2026-11-12T15:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":0}}]}]}},
+ {"title":"Half-price Game","id":"hpg","productSlug":"half-price","keyImages":[],
+  "price":{"totalPrice":{"discountPrice":50000,"originalPrice":100000,"currencyCode":"RUB","currencyInfo":{"decimals":2}}},
+  "promotions":{"promotionalOffers":[{"promotionalOffers":[{"startDate":"2026-10-29T15:00:00.000Z","endDate":"2026-11-05T15:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":50}}]}],"upcomingPromotionalOffers":[]}},
+ {"title":"No promo","id":"np","promotions":null},
+ {"title":"Mystery Game","id":"myst","offerType":"BASE_GAME","productSlug":"[]","keyImages":[{"type":"VaultClosed","url":"https://cdn1.epicgames.com/vault.png"}],
+  "price":{"totalPrice":{"discountPrice":0,"originalPrice":0,"currencyCode":"RUB","currencyInfo":{"decimals":2}}},
+  "promotions":{"promotionalOffers":[],"upcomingPromotionalOffers":[{"promotionalOffers":[{"startDate":"2026-11-12T15:00:00.000Z","endDate":"2026-11-19T15:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":0}}]}]}}
+]}}}}
