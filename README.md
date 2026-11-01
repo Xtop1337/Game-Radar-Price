@@ -1,1 +1,1 @@
-# Game-Radar-Price-
+# Game-Radar-Price
