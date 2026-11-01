@@ -81,14 +81,6 @@ popup/ options/ onboarding/   окно расширения, настройки,
 scripts/build.mjs     сборка под Firefox и Chromium
 ```
 
-## Выпуск новой версии
-1. Поменяй `version` в `manifest.json` и `package.json`.
-2. Закоммить и запушь в `main`.
-3. На вкладке **Actions → Release → Run workflow** нажми «Run workflow». Можно и тегом:
-   `git tag v1.0.1 && git push origin v1.0.1`.
-4. GitHub Actions (`.github/workflows/release.yml`) прогонит тесты и линтер, соберёт оба архива и опубликует
-   релиз `v<версия>`.
-
 ## Автор
 [Xtop1337](https://github.com/Xtop1337) · [репозиторий](https://github.com/Xtop1337/Game-Radar-Price) · [сообщить об ошибке](https://github.com/Xtop1337/Game-Radar-Price/issues)
 
