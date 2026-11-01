@@ -1,6 +1,6 @@
 {
   "name": "game-radar",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Firefox/Zen extension: free game giveaways and discounts (Steam, Epic, GOG)",
@@ -8,5 +8,10 @@
     "test": "node --test tests/*.test.js",
     "build": "node scripts/build.mjs",
     "lint": "npm run build && npx --yes web-ext@8 lint --source-dir dist/firefox"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xtop1337/Game-Radar-Price.git"
+  },
+  "author": "Xtop1337"
 }

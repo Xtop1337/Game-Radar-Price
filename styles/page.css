@@ -89,3 +89,11 @@ select {
 .done { color: var(--free); font-weight: 700; animation: fadeUp 400ms var(--ease) both; }
 .btn.big { height: 46px; padding: 0 28px; font-size: 15px; }
 .switch b.plain { font-weight: inherit; }
+
+.about { display: grid; gap: 2px; margin-bottom: 14px; }
+.about-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--border); }
+.about-row:last-child { border-bottom: 0; }
+.about-row span { color: var(--text-2); }
+.about-row a { color: var(--accent); text-decoration: none; font-weight: 600; word-break: break-all; text-align: right; }
+.about-row a:hover { text-decoration: underline; }
+a.btn { text-decoration: none; }

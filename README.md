@@ -28,8 +28,9 @@
 
 ## Установка
 
-Готовые архивы появляются после сборки (`npm run build`, нужен Node.js 18+):
-`dist/game-radar-firefox-<версия>.zip` и `dist/game-radar-chromium-<версия>.zip`.
+**Скачай готовые архивы на странице [Releases](https://github.com/Xtop1337/Game-Radar-Price/releases/latest):**
+`game-radar-chromium-<версия>.zip` для Chrome, Opera GX, Edge и Яндекс Браузера, `game-radar-firefox-<версия>.zip`
+для Firefox и Zen. Собрать их можно и самому: `npm run build` (нужен Node.js 18+), архивы появятся в `dist/`.
 
 ### Chrome / Opera GX / Edge / Яндекс
 1. Открой `chrome://extensions` (в Opera GX — `opera://extensions`, в Edge — `edge://extensions`).
@@ -79,6 +80,17 @@ _locales/             название и описание расширения 
 popup/ options/ onboarding/   окно расширения, настройки, приветствие
 scripts/build.mjs     сборка под Firefox и Chromium
 ```
+
+## Выпуск новой версии
+1. Поменяй `version` в `manifest.json` и `package.json`.
+2. Закоммить, затем создай и отправь тег:
+   ```bash
+   git tag v1.0.1 && git push origin v1.0.1
+   ```
+3. GitHub Actions (`.github/workflows/release.yml`) прогонит тесты и линтер, соберёт оба архива и опубликует релиз.
+
+## Автор
+[Xtop1337](https://github.com/Xtop1337) · [репозиторий](https://github.com/Xtop1337/Game-Radar-Price) · [сообщить об ошибке](https://github.com/Xtop1337/Game-Radar-Price/issues)
 
 ## Лицензия
 MIT

@@ -1,0 +1,48 @@
+# Релиз по тегу: git tag v1.0.0 && git push origin v1.0.0
+# Проверяет, что тег совпадает с версией в manifest.json, гоняет тесты и линтер,
+# собирает архивы для Firefox и Chromium и публикует GitHub Release с ними.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Version matches tag
+        run: |
+          VERSION=$(node -p "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')).version")
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match manifest.json version $VERSION"
+            exit 1
+          fi
+
+      - name: Tests
+        run: npm test
+
+      - name: Build and lint (Firefox + Chromium)
+        run: npm run lint
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sed "s/{{VERSION}}/$VERSION/g" .github/release-notes.md > notes.md
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/game-radar-chromium-$VERSION.zip" \
+            "dist/game-radar-firefox-$VERSION.zip" \
+            --title "Game Radar $VERSION" \
+            --notes-file notes.md \
+            --verify-tag

@@ -2,8 +2,10 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "__MSG_extShortName__",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "__MSG_extDescription__",
+  "author": "Xtop1337",
+  "homepage_url": "https://github.com/Xtop1337/Game-Radar-Price",
   "default_locale": "en",
   "icons": {
     "48": "icons/icon-48.png",

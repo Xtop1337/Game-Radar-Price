@@ -85,6 +85,7 @@ async function checkPerms() {
 
 async function init() {
   settings = await getSettings();
+  $('#version').textContent = ext.runtime.getManifest().version;
   ({ geo: detected } = await ext.storage.local.get('geo'));
   applyLanguage();
   // уточняем страну по IP (из кэша на сутки) и обновляем подпись «Авто (по IP: …)»

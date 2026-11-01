@@ -13,7 +13,8 @@ const manifest = JSON.parse(readFileSync(join(root, 'manifest.json'), 'utf8'));
 const targets = {
   firefox: (m) => m,
   chromium: (m) => {
-    const { browser_specific_settings: _gecko, ...rest } = m;
+    // author в Chrome — объект {email}, а не строка; ссылка на проект остаётся в homepage_url
+    const { browser_specific_settings: _gecko, author: _author, ...rest } = m;
     return {
       ...rest,
       background: { service_worker: m.background.scripts[0], type: 'module' },
